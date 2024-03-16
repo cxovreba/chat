@@ -17,3 +17,9 @@ export interface ButtonType {
     children?: React.ReactNode | string;
     className: string,
 }
+
+export interface ChatType {
+    id: number;
+    author: string | undefined;
+    text: string;
+}

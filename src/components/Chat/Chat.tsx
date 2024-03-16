@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import Input from "../Input/Input";
 import logo from './Avatar User.png'
+import { ChatType } from "../styles/common";
 
 const Chat = () => {
-  const [messages, setMessages] = useState([
-    { id: 1, author: "Saba", text: "Hello Gio" },
-    { id: 2, author: "Gio", text: "Hello Saba" },
-  ]);
+  const [messages, setMessages] = useState<ChatType[]>([]);
   const [newMessageOne, setNewMessageOne] = useState("");
   const [newMessageTwo, setNewMessageTwo] = useState("");
 
@@ -22,7 +20,7 @@ const Chat = () => {
     if (newMessageOne.trim() !== "") {
       const updatedMessages = [
         ...messages,
-        { id: messages.length + 1, author: "Saba", text: newMessageOne },
+        { id: messages.length + 1, author: "User-1", text: newMessageOne },
       ];
       setMessages(updatedMessages);
       setNewMessageOne("");
@@ -34,7 +32,7 @@ const Chat = () => {
     if (newMessageTwo.trim() !== "") {
       const updatedMessages = [
         ...messages,
-          { id: messages.length + 1, author: "Gio", text: newMessageTwo },
+          { id: messages.length + 1, author: "User-2", text: newMessageTwo },
       ];
       setMessages(updatedMessages);
       setNewMessageTwo("");
@@ -53,7 +51,7 @@ const Chat = () => {
     <div className="container">
       <div className="chat-display">
         {messages.map((message) => (
-          <div key={message.id} className={message.author === "Saba" ? "left" : "right"}>
+          <div key={message.id} className={message.author === "User-1" ? "left" : "right"}>
             <p style={{display: "flex"}}>
                 <img src={logo} alt="" />{message.author}: {message.text}
             </p>
