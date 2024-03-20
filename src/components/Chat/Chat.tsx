@@ -5,8 +5,8 @@ import { ChatType } from "../styles/common";
 
 const Chat = () => {
   const [messages, setMessages] = useState<ChatType[]>([]);
-  const [newMessageOne, setNewMessageOne] = useState("");
-  const [newMessageTwo, setNewMessageTwo] = useState("");
+  const [newMessageOne, setNewMessageOne] = useState<string>("");
+  const [newMessageTwo, setNewMessageTwo] = useState<string>("");
 
   const handleMessageOneChange = (e: any) => {
     setNewMessageOne(e.target.value);
